@@ -11,12 +11,12 @@ $uri = trim($uri, '/');
 $segments = $uri ? explode('/', $uri) : [];
 
 // Determine controller + action
-$controllerName = $segments[0] ?? 'dashboard';
+$controllerName = $segments[0] ?? 'landing';
 $action = $segments[1] ?? 'index';
 $param = $segments[2] ?? null;
 
 // Public routes (no auth needed)
-$publicRoutes = ['login', 'register', 'forgot-password', 'reset-password', 'room', 'clean', 'found', 'api'];
+$publicRoutes = ['landing', 'login', 'register', 'forgot-password', 'reset-password', 'room', 'clean', 'found', 'api'];
 
 // If not logged in and not a public route → redirect to login
 if (!is_logged_in() && !in_array($controllerName, $publicRoutes)) {
